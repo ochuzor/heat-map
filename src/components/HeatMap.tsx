@@ -85,7 +85,7 @@ export function HeatMap({ data, getRowValue, getColumnValue, getNumberValue }: H
 
         return ({
             id,
-            color: getColor(category, "red"),
+            color: getColor(category, "blue"),
         });
     };
 

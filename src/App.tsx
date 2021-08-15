@@ -11,7 +11,7 @@ type GithubData = {
 };
 
 function App() {
-  const data: GithubData[] = range(0, 80)
+  const data: GithubData[] = range(0, 200)
     .map(_ => {
       return ({
         dayOfWeek: random(0, 6),
