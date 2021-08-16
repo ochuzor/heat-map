@@ -1,9 +1,9 @@
 import React from "react";
 import { groupBy, map, max, min, range, filter, reduce, add, flatten } from "lodash";
 
-import type { DataItem, HeatMapItem } from "../Types";
+import type { DataItem } from "../Types";
 import { HeatMapRow } from "./HeatMapRow";
-import { getColor, getCategory, getStepValue } from "./utils";
+import { getStepValue, getRowData } from "./utils";
 
 export type HeatMapProps = {
     data: DataItem[];
@@ -38,15 +38,6 @@ export function HeatMap({ data, getRowValue, getColumnValue, getNumberValue }: H
         .map(item => item.value);
 
     const step = getStepValue(valuesGreaterThan0);
-
-    const getRowData = (id: number | string, value: number, step: number): HeatMapItem => {
-        const category = getCategory(value, step);
-
-        return ({
-            id,
-            color: getColor(category, "blue"),
-        });
-    };
 
     return (<div>
         {map(rowGroups, (row, i) => (<div key={i}>

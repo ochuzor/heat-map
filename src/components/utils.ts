@@ -1,5 +1,7 @@
 import { max, min } from "lodash";
 
+import type { HeatMapItem } from "../Types";
+
 const NUM_CATEGORIES = 4;
 
 export const getStepValue = (nums: number[], categoryCount = NUM_CATEGORIES) => {
@@ -40,4 +42,13 @@ const CATEGORY_COLOR_MAP = [
 
 export const getColor = (category: number, defaultColour: string = "black") => {
     return CATEGORY_COLOR_MAP[category] || defaultColour;
+};
+
+export const getRowData = (id: number | string, value: number, step: number): HeatMapItem => {
+    const category = getCategory(value, step);
+
+    return ({
+        id,
+        color: getColor(category, "blue"),
+    });
 };
