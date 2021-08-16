@@ -16,11 +16,11 @@ type Props = {
 export function GithubContributions({ numberOfSamples }: Props) {
     const data: GithubData[] = range(0, numberOfSamples)
         .map(_ => {
-        return ({
-            dayOfWeek: random(0, 6),
-            weekOfYear: random(0, 51),
-            contributions: random(0, 10),
-        });
+            return ({
+                dayOfWeek: random(0, 6),
+                weekOfYear: random(0, 51),
+                contributions: random(0, 10),
+            });
         });
 
     const getRow = (item: GithubData) => item.dayOfWeek;
@@ -28,7 +28,7 @@ export function GithubContributions({ numberOfSamples }: Props) {
     const getValue = (item: GithubData) => item.contributions;
 
     return (<div>
-        <h4>Random commits simulation data for {numberOfSamples} commits</h4>
+        <h4>Random contributions simulation data for {numberOfSamples} commits</h4>
         <HeatMap
             data={data}
             getRowValue={getRow}
