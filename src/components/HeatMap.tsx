@@ -48,9 +48,9 @@ const getColor = (category: number, defaultColour: string = "black") => {
 
 export type HeatMapProps = {
     data: DataItem[];
-    getRowValue: (item: DataItem) => number;
-    getColumnValue: (item: DataItem) => number;
-    getNumberValue: (item: DataItem) => number;
+    getRowValue: (item: DataItem, allData?: DataItem) => number;
+    getColumnValue: (item: DataItem, allData?: DataItem) => number;
+    getNumberValue: (item: DataItem, allData?: DataItem) => number;
 };
 
 export function HeatMap({ data, getRowValue, getColumnValue, getNumberValue }: HeatMapProps) {
